@@ -1,4 +1,4 @@
-// unctions that are stored in object properties are called “methods”.
+// functions that are stored in object properties are called “methods”.
 // Methods allow objects to “act” like object.doSomething().
 // Methods can reference the object as this.
 // The value of this is defined at run-time.
@@ -8,6 +8,19 @@
 // When a function is called in the “method” syntax: object.method(), the value of this during the call is object.
 
 
+
+
+//task1
+function makeUser() {
+  return {
+    name: "John",
+    ref: this
+  };
+}
+
+let user = makeUser();
+
+alert( user.ref.name ); //undefined
 
 //example calculator code using this
 
@@ -26,3 +39,22 @@ let calculator={
 calculator.read();
 alert( calculator.sum() );
 alert( calculator.mul() );
+
+//task3
+let ladder = {
+  step: 0,
+  up() {
+    this.step++;
+    return this;
+  },
+  down() {
+    this.step--;
+    return this;
+  },
+  showStep() {
+    alert( this.step );
+    return this;
+  }
+};
+
+ladder.up().up().down().showStep().down().showStep(); // shows 1 then 0
