@@ -13,3 +13,12 @@ function readNumber(){
     return +num;
 }
 alert(`Read:${readNumber()}`);
+
+//task3
+function random() {
+    return min+Math.random()*(max-min);
+}
+
+alert( random(1,5));
+
+//task4
