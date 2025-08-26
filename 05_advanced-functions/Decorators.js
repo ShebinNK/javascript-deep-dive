@@ -18,9 +18,24 @@ for (let args of work.calls) {
 
 function spy(func){
     function wrapper(...args){
-        wrapper.call.push(args);
+        wrapper.calls.push(args);
         return func.apply(this,args);
     }
     wrapper.calls=[];
     return wrapper;
 }
+
+
+//task2
+
+function f(x) {
+  alert(x);
+}
+
+// create wrappers
+let f1000 = delay(f, 1000);
+let f1500 = delay(f, 1500);
+
+f1000("test"); // shows "test" after 1000ms
+f1500("test"); // shows "test" after 1500ms
+
