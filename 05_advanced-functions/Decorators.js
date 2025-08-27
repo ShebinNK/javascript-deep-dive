@@ -39,3 +39,62 @@ let f1500 = delay(f, 1500);
 f1000("test"); // shows "test" after 1000ms
 f1500("test"); // shows "test" after 1500ms
 
+
+//sol
+{
+function delay(f, ms) {
+
+  return function() {
+    setTimeout(() => f.apply(this, arguments), ms);
+  };
+
+}
+
+let f1000 = delay(alert, 1000);
+
+f1000("test"); // shows "test" after 1000ms
+
+}
+
+
+//task3
+
+function debounce(func, ms) {
+  let timeout;
+  return function() {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => func.apply(this, arguments), ms);
+  };
+}
+
+
+//task4
+
+function throttle(func, ms) {
+
+  let isThrottled = false,
+    savedArgs,
+    savedThis;
+
+  function wrapper() {
+
+    if (isThrottled) { // (2)
+      savedArgs = arguments;
+      savedThis = this;
+      return;
+    }
+    isThrottled = true;
+
+    func.apply(this, arguments); // (1)
+
+    setTimeout(function() {
+      isThrottled = false; // (3)
+      if (savedArgs) {
+        wrapper.apply(savedThis, savedArgs);
+        savedArgs = savedThis = null;
+      }
+    }, ms);
+  }
+
+  return wrapper;
+}
