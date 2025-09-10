@@ -1,0 +1,1 @@
+<input type="button" onclick="this.hidden=true" value="Click to hide"></input>

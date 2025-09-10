@@ -1,0 +1,40 @@
+//How to find?…
+
+//1. The table with id="age-table".
+//2. All label elements inside that table (there should be 3 of them).
+//3. The first td in that table (with the word “Age”).
+//4. The form with name="search".
+//5. The first input in that form.
+//6. The last input in that form.
+
+//1
+let table = document.getElementById('age-table')
+
+//2
+table.getElementsByTagName('label')
+//or
+document.querySelectorAll('#age-table label')
+
+
+//3
+table.rows[0].cells[0]
+// or
+table.getElementsByTagName('td')[0]
+// or
+table.querySelector('td')
+
+//4
+let form = document.getElementsByName('search')[0]
+// or, form specifically
+document.querySelector('form[name="search"]')
+
+
+//5
+form.getElementsByTagName('input')[0]
+// or
+form.querySelector('input')
+
+
+//6
+let inputs = form.querySelectorAll('input') // find all inputs
+inputs[inputs.length-1] 
