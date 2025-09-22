@@ -27,9 +27,9 @@ let rabbit = new Rabbit("White Rabbit", 10); // Error: this is not defined.
 
 //child must call super before using this
 
-//ans
+  //ans
 
-{
+  {
 class Animal {
 
   constructor(name) {
